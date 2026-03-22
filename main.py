@@ -1,4 +1,3 @@
-print ("xdd")
 def leer_recursos(nombre_archivo: str):
     recursos = []
     with open(nombre_archivo, "r") as f:
@@ -26,4 +25,4 @@ def leer_tareas(nombre_archivo: str):
                 "categoria": categoria
             })
     return tareas
-print ("xddd")
+print ("ola")
