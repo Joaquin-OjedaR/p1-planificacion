@@ -69,7 +69,6 @@ def generar_output(plan, nombre_archivo: str):
         f.write(f"Makespan: {makespan}\n")
 
 def main():
-    print("xd")
     tareas = leer_tareas("tareas_2.txt")
     recursos = leer_recursos("recursos_2.txt")
 
