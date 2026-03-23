@@ -27,9 +27,35 @@ def leer_tareas(nombre_archivo: str):
     return tareas
 
 
-t = leer_tareas("tareas.txt")
-t.sort(key=lambda x: x["duracion"], reverse=True)
+def planificar(tareas, recursos):
+    makespan = []
+    for tarea in tareas:
+        contador = 0
+        for r in recursos:
+            if tarea["categoria"] in r["categorias"]:
+                contador += 1
+        tarea["opciones"] = contador
 
-for i in t:
-    print(i)
-    print("a")
+    tareas.sort(key=lambda t: (t["opciones"], -t["duracion"]))
+    for tarea in tareas:
+      
+        compatibles = []
+        for r in recursos:
+            if tarea["categoria"] in r["categorias"]:
+                compatibles.append(r)
+
+        mejor_recurso = min(compatibles, key=lambda r: r["tiempo"])
+
+        inicio = mejor_recurso["tiempo"]
+        fin = inicio + tarea["duracion"]
+
+        makespan.append({
+            "tarea": tarea["numero"],          
+            "recurso": mejor_recurso["numero"], 
+            "inicio": inicio,
+            "fin": fin
+        })
+
+        mejor_recurso["tiempo"] = fin
+
+    return makespan
