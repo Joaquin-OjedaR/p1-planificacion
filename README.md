@@ -1,4 +1,4 @@
-# Proyecto 1 — Planificación de Tareas
+# Proyecto 1 — Planificación de Tareas - Grupo 19
 
 Integrantes:
 - Daniel Murua
