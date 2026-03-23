@@ -67,3 +67,16 @@ def generar_output(plan, nombre_archivo: str):
             f.write(linea)
         makespan = max(p["fin"] for p in plan)
         f.write(f"Makespan: {makespan}\n")
+
+def main():
+    print("xd")
+    tareas = leer_tareas("tareas_2.txt")
+    recursos = leer_recursos("recursos_2.txt")
+
+    plan = planificar(tareas, recursos)
+    
+    for p in plan:
+        print(p)
+    generar_output(plan, "output.txt")
+if __name__ == "__main__":
+    main()
