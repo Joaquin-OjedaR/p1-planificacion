@@ -59,3 +59,11 @@ def planificar(tareas, recursos):
         mejor_recurso["tiempo"] = fin
 
     return makespan
+
+def generar_output(plan, nombre_archivo: str):
+    with open(nombre_archivo, "w") as f:
+        for p in plan:
+            linea = f"{p['tarea']},{p['recurso']},{p['inicio']},{p['fin']}\n"
+            f.write(linea)
+        makespan = max(p["fin"] for p in plan)
+        f.write(f"Makespan: {makespan}\n")
