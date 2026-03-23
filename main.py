@@ -25,4 +25,11 @@ def leer_tareas(nombre_archivo: str):
                 "categoria": categoria
             })
     return tareas
-print ("ola")
+
+
+t = leer_tareas("tareas.txt")
+t.sort(key=lambda x: x["duracion"], reverse=True)
+
+for i in t:
+    print(i)
+    print("a")
